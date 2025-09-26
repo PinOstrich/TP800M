@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Distance Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"] {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #0066ff;
+      outline: none;
+    }
+
+    button {
+      padding: 0.8rem;
+      font-size: 1rem;
+      background: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0052cc;
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #0066ff;
+    }
+
+    .error {
+      color: red;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <img>
+  </div>
+  <div class="container">
+    <h2>Distance Predictor</h2>
+    <form method="POST">
+      <input type="text" name="user_input" placeholder="Enter a float" required>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if result is not none %}
+    {% if result is string %}
+    <div class="result error">{{ result }}</div>
+    {% else %}
+    <div class="result">Prediction: {{ result }}</div>
+    {% endif %}
+    {% endif %}
+
+    <footer>
+      Powered by the sun 🚀
+    </footer>
+  </div>
+</body>
+
+</html>
